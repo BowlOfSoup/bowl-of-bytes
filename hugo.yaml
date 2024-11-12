@@ -10,8 +10,6 @@ params:
       Checkout my Bowl Of _Soup_ Github at [github.com/bowlofsoup](https://github.com/bowlofsoup).
     showThumbnail: true
   ShowReadingTime: true
-  images:
-    lazyLoading: true
   cover:
     responsiveImages: false
   custom_css: ["css/custom.css"]
