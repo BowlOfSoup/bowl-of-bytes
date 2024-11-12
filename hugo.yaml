@@ -1,4 +1,4 @@
-baseURL: https://example.org/
+baseURL: https://bowlofbytes.com
 languageCode: en-us
 title: Bowl Of Bytes
 theme: ["PaperMod"]
@@ -32,7 +32,7 @@ menu:
       url: "/"
       weight: 1
     - name: "Overview"
-      url: "/archives/"
+      url: "/overview/"
       weight: 2
     - name: "Search"
       url: "/search/"
@@ -46,3 +46,7 @@ outputs:
     - HTML
     - RSS
     - JSON
+  page:
+    - HTML
+  section:
+    - HTML

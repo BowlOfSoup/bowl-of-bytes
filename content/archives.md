@@ -1,6 +1,6 @@
 ---
-title: "Archive"
+title: "Overview"
 layout: "archives"
-url: "/archives/"
+url: "/overview/"
 summary: An overview of all posts.
 ---
