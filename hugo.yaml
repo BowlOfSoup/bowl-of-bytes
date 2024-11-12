@@ -1,0 +1,50 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Bowl Of Bytes
+theme: ["PaperMod"]
+
+params:
+  homeInfoParams:
+    Title: Hi there 👋. Here is a Bowl Of _Bytes_.
+    Content: Writings on technology, programming, and other geeky things.
+      Checkout my Bowl Of _Soup_ Github at [github.com/bowlofsoup](https://github.com/bowlofsoup).
+    showThumbnail: true
+  ShowReadingTime: true
+  images:
+    lazyLoading: true
+  cover:
+    responsiveImages: false
+  custom_css: ["css/custom.css"]
+
+taxonomies:
+  tag: tags
+
+markup:
+  highlight:
+    style: "gruvbox"
+    lineNos: true
+    lineNumbersInTable: true
+  goldmark:
+    renderer:
+      unsafe: true
+
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "Overview"
+      url: "/archives/"
+      weight: 2
+    - name: "Search"
+      url: "/search/"
+      weight: 2
+    - name: "Tags"
+      url: "/tags/"
+      weight: 3
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON

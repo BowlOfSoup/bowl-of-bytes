@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Bowl Of Bytes</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Bowl Of Bytes</description>
+    <image>
+      <title>Bowl Of Bytes</title>
+      <url>http://localhost:1313/</url>
+      <link>http://localhost:1313/</link>
+    </image>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Nov 2024 00:13:32 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Tue, 12 Nov 2024 00:13:32 +0100</pubDate>
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry</title>
+      <link>http://localhost:1313/tags/raspberry/</link>
+      <pubDate>Tue, 12 Nov 2024 00:13:32 +0100</pubDate>
+      <guid>http://localhost:1313/tags/raspberry/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
