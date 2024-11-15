@@ -3,5 +3,9 @@
 }
 
 table:has(thead) {
-    margin-top: -20px; /* Adjust the value as needed */
+    margin-top: -20px;
+}
+
+.first-entry {
+    min-height: 0;
 }
