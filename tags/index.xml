@@ -6,19 +6,33 @@
     <description>Recent content in Tags on Bowl Of Bytes</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Nov 2024 00:13:32 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2024 00:08:00 +0100</lastBuildDate>
     <atom:link href="https://bowlofbytes.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homelab</title>
+      <link>https://bowlofbytes.com/tags/homelab/</link>
+      <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
+      <guid>https://bowlofbytes.com/tags/homelab/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Linux</title>
       <link>https://bowlofbytes.com/tags/linux/</link>
-      <pubDate>Tue, 12 Nov 2024 00:13:32 +0100</pubDate>
+      <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
       <guid>https://bowlofbytes.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VPN</title>
+      <link>https://bowlofbytes.com/tags/vpn/</link>
+      <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
+      <guid>https://bowlofbytes.com/tags/vpn/</guid>
       <description></description>
     </item>
     <item>
       <title>Raspberry</title>
       <link>https://bowlofbytes.com/tags/raspberry/</link>
-      <pubDate>Tue, 12 Nov 2024 00:13:32 +0100</pubDate>
+      <pubDate>Tue, 12 Nov 2024 00:13:00 +0100</pubDate>
       <guid>https://bowlofbytes.com/tags/raspberry/</guid>
       <description></description>
     </item>
