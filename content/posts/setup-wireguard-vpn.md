@@ -128,9 +128,14 @@ sudo systemctl start wg-quick@wg0
 sudo wg-quick down wg0
 ```
 
-<span style="color: #94C4FC;">→</span> Start Wireguard with the `wg0` configuration
+<span style="color: #94C4FC;">→</span> Start Wireguard with the `wg0` configuration:
 ```text
 sudo wg-quick up wg0
+```
+
+<span style="color: #94C4FC;">→</span> Restart Wireguard after making a config change:
+```text
+sudo systemctl restart wg-quick@wg0
 ```
 
 ### Generate a QR code to scan
@@ -148,7 +153,7 @@ You should be able to connect from your phone to your internal network.
 * Connect to the VPN (either by scanning the QR code on your phone or importing the configuration file).
 * Try accessing your NAS or router’s web interface.
 
-#### (2) Check if the VPN still works after a reboot.
+#### (2) Check if the VPN still works after a reboot
 ```bash
 sudo reboot 
 # ...
@@ -159,3 +164,8 @@ sudo wg show
 This is mostly due to a mis-configuration in the IP ranges in the `wg0.conf` file. 
 * Make sure the internal subnet actually matches with yours.
 * Double check if the VPN subnet is different from the internal one.
+
+#### (?) I've added a new client, but it can't connect to anything on my (internal) network
+* You may have forgotten to add a new `[Peer]` section in the `wg0.conf` file
+* You did not restart the Wireguard service after adding the new client (`sudo systemctl restart wg-quick@wg0`)
+* Did you distribute a correct client file with correct IP-addresses and ranges that don't conflict with other clients?
