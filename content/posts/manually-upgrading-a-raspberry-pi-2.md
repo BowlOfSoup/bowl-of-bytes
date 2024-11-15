@@ -15,7 +15,7 @@ With no SD-card reader in sight, I took the road less traveled: a manual upgrade
 <!--more-->
 
 I've set out on a quest to build myself a homelab, with some network infrastructure. 
-I have an old Raspberry PI 2, with 1GB of RAM and a ARMv7 1200Mhz processor, which I indent to use as a VPN gateway. 
+As VPN gateway I decided to use my Raspberry PI 2, with 1GB of RAM and a ARMv7 1200Mhz processor. 
 
 I booted up the Raspberry, and used the recovery mode to reset the OS to its original, which was Raspbian Jessie.
 With Jessie officially retired and brimming with potential security risks, upgrading to the shiny new Raspbian Bookworm 

@@ -21,12 +21,14 @@ But I do want to be able to connect to the NAS and work on my homelab servers fr
 
 ![VPN Setup](/images/setup-wireguard-vpn-diagram.png "VPN setup")
 
-I've chosen Wireguard to serve as my VPN protocol. It's quite easy to set up and has apps available
+I've chosen **Wireguard** to serve as my VPN protocol. It's quite easy to set up and has apps available
 on mobile and desktop platforms. The only thing is, you will need a static public IP address to
 be able to connect. If you don't have that you can either use a service like [TailScale](https://tailscale.com/)
 or a Dynamic DNS (DDNS) service.
 
-Let's dive into setting up Wireguard on a Debian based system, in my case a Raspberry Pi.
+Let's dive into setting up **Wireguard** on a Debian based system, in my case a Raspberry Pi.
+WireGuard is a lightweight, fast, and secure VPN protocol. You use it by installing the WireGuard app on 
+your phone or laptop then importing a configuration file provided by the server. Now you're ready to connect!
 
 ### Wireguard installation
 <span style="color: #94C4FC;">→</span> Install Wireguard. 
@@ -99,6 +101,7 @@ PublicKey = <server public key>
 Endpoint = <your IP or public domain>:51820
 AllowedIPs = 10.7.70.0/24, 192.168.0.0/24
 ```
+✅ This file is the one you have to distribute to your clients Wireguard app!
 
 #### Client [Interface]
 |     |                                                                                     |
@@ -142,7 +145,7 @@ qrencode -t ansiutf8 < clients/phone.conf
 #### (1) Verify via your phone or device
 You should be able to connect from your phone to your internal network.
 * Turn off Wi-Fi on your phone.
-* Connect to the VPN.
+* Connect to the VPN (either by scanning the QR code on your phone or importing the configuration file).
 * Try accessing your NAS or router’s web interface.
 
 #### (2) Check if the VPN still works after a reboot.
