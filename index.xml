@@ -13,8 +13,8 @@
       <link>https://bowlofbytes.com/posts/setup-wireguard-vpn/</link>
       <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
       <guid>https://bowlofbytes.com/posts/setup-wireguard-vpn/</guid>
-      <description>&lt;p&gt;In my project of building a homelab I wanted to set up a VPN to access my internal network from
-anywhere. Read on to see how I&amp;rsquo;ve set this up with Wireguard.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In my quest of building a homelab I wanted to set up a VPN to access my internal network from
+anywhere. Read on to see how     I&amp;rsquo;ve set this up with Wireguard.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Manually upgrading a Raspberry Pi 2</title>
