@@ -19,7 +19,7 @@ taxonomies:
 
 markup:
   highlight:
-    style: "gruvbox"
+    style: "base16-snazzy"
     lineNos: true
     lineNumbersInTable: true
   goldmark:

@@ -1,0 +1,7 @@
+.highlight {
+    margin-bottom: 25px !important;
+}
+
+table:has(thead) {
+    margin-top: -20px; /* Adjust the value as needed */
+}
