@@ -11,8 +11,8 @@ cover:
 showToC: true
 ---
 
-In my project of building a homelab I wanted to set up a VPN to access my internal network from 
-anywhere. Read on to see how I've set this up with Wireguard.
+In my quest of building a homelab I wanted to set up a VPN to access my internal network from 
+anywhere. Read on to see how     I've set this up with Wireguard.
 <!--more-->
 
 ### The plan
