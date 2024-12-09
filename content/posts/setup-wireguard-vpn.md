@@ -23,7 +23,7 @@ But I do want to be able to connect to the NAS and work on my homelab servers fr
 
 I've chosen **Wireguard** to serve as my VPN protocol. It's quite easy to set up and has apps available
 on mobile and desktop platforms. The only thing is, you will need a static public IP address to
-be able to connect. If you don't have that you can either use a service like [TailScale](https://tailscale.com/)
+be able to connect. If you don't have that you can either use a service like [ZeroTier](https://bowlofbytes.com/posts/setup-zerotier-tunnel/)
 or a Dynamic DNS (DDNS) service.
 
 Let's dive into setting up **Wireguard** on a Debian based system, in my case a Raspberry Pi.
