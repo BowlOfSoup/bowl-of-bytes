@@ -4,10 +4,18 @@
     <title>Linux on Bowl Of Bytes</title>
     <link>https://bowlofbytes.com/tags/linux/</link>
     <description>Recent content in Linux on Bowl Of Bytes</description>
-    <generator>Hugo -- 0.138.0</generator>
+    <generator>Hugo -- 0.139.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Nov 2024 00:08:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2024 00:08:00 +0100</lastBuildDate>
     <atom:link href="https://bowlofbytes.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using ZeroTier as VPN-tunnel</title>
+      <link>https://bowlofbytes.com/posts/setup-zerotier-tunnel/</link>
+      <pubDate>Mon, 09 Dec 2024 00:08:00 +0100</pubDate>
+      <guid>https://bowlofbytes.com/posts/setup-zerotier-tunnel/</guid>
+      <description>&lt;p&gt;Sometimes when working with a homelab and VPN&amp;rsquo;s you just want to skip all the config and just create a tunnel
+to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Setting up a VPN with WireGuard</title>
       <link>https://bowlofbytes.com/posts/setup-wireguard-vpn/</link>

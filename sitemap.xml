@@ -3,24 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://bowlofbytes.com/</loc>
-    <lastmod>2024-11-15T00:08:00+01:00</lastmod>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
   </url><url>
     <loc>https://bowlofbytes.com/tags/homelab/</loc>
-    <lastmod>2024-11-15T00:08:00+01:00</lastmod>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
   </url><url>
     <loc>https://bowlofbytes.com/tags/linux/</loc>
-    <lastmod>2024-11-15T00:08:00+01:00</lastmod>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
+  </url><url>
+    <loc>https://bowlofbytes.com/tags/nas/</loc>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
   </url><url>
     <loc>https://bowlofbytes.com/posts/</loc>
-    <lastmod>2024-11-15T00:08:00+01:00</lastmod>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
   </url><url>
-    <loc>https://bowlofbytes.com/posts/setup-wireguard-vpn/</loc>
-    <lastmod>2024-11-15T00:08:00+01:00</lastmod>
+    <loc>https://bowlofbytes.com/tags/synology/</loc>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
   </url><url>
     <loc>https://bowlofbytes.com/tags/</loc>
-    <lastmod>2024-11-15T00:08:00+01:00</lastmod>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
+  </url><url>
+    <loc>https://bowlofbytes.com/posts/setup-zerotier-tunnel/</loc>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
   </url><url>
     <loc>https://bowlofbytes.com/tags/vpn/</loc>
+    <lastmod>2024-12-09T00:08:00+01:00</lastmod>
+  </url><url>
+    <loc>https://bowlofbytes.com/posts/setup-wireguard-vpn/</loc>
     <lastmod>2024-11-15T00:08:00+01:00</lastmod>
   </url><url>
     <loc>https://bowlofbytes.com/posts/manually-upgrading-a-raspberry-pi-2/</loc>

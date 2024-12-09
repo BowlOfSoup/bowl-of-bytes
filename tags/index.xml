@@ -4,28 +4,42 @@
     <title>Tags on Bowl Of Bytes</title>
     <link>https://bowlofbytes.com/tags/</link>
     <description>Recent content in Tags on Bowl Of Bytes</description>
-    <generator>Hugo -- 0.138.0</generator>
+    <generator>Hugo -- 0.139.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Nov 2024 00:08:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2024 00:08:00 +0100</lastBuildDate>
     <atom:link href="https://bowlofbytes.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Homelab</title>
       <link>https://bowlofbytes.com/tags/homelab/</link>
-      <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
+      <pubDate>Mon, 09 Dec 2024 00:08:00 +0100</pubDate>
       <guid>https://bowlofbytes.com/tags/homelab/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
       <link>https://bowlofbytes.com/tags/linux/</link>
-      <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
+      <pubDate>Mon, 09 Dec 2024 00:08:00 +0100</pubDate>
       <guid>https://bowlofbytes.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NAS</title>
+      <link>https://bowlofbytes.com/tags/nas/</link>
+      <pubDate>Mon, 09 Dec 2024 00:08:00 +0100</pubDate>
+      <guid>https://bowlofbytes.com/tags/nas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Synology</title>
+      <link>https://bowlofbytes.com/tags/synology/</link>
+      <pubDate>Mon, 09 Dec 2024 00:08:00 +0100</pubDate>
+      <guid>https://bowlofbytes.com/tags/synology/</guid>
       <description></description>
     </item>
     <item>
       <title>VPN</title>
       <link>https://bowlofbytes.com/tags/vpn/</link>
-      <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
+      <pubDate>Mon, 09 Dec 2024 00:08:00 +0100</pubDate>
       <guid>https://bowlofbytes.com/tags/vpn/</guid>
       <description></description>
     </item>

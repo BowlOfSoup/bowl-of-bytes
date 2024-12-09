@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>VPN on Bowl Of Bytes</title>
-    <link>https://bowlofbytes.com/tags/vpn/</link>
-    <description>Recent content in VPN on Bowl Of Bytes</description>
+    <title>NAS on Bowl Of Bytes</title>
+    <link>https://bowlofbytes.com/tags/nas/</link>
+    <description>Recent content in NAS on Bowl Of Bytes</description>
     <generator>Hugo -- 0.139.3</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Dec 2024 00:08:00 +0100</lastBuildDate>
-    <atom:link href="https://bowlofbytes.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://bowlofbytes.com/tags/nas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using ZeroTier as VPN-tunnel</title>
       <link>https://bowlofbytes.com/posts/setup-zerotier-tunnel/</link>
@@ -15,14 +15,6 @@
       <guid>https://bowlofbytes.com/posts/setup-zerotier-tunnel/</guid>
       <description>&lt;p&gt;Sometimes when working with a homelab and VPN&amp;rsquo;s you just want to skip all the config and just create a tunnel
 to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Setting up a VPN with WireGuard</title>
-      <link>https://bowlofbytes.com/posts/setup-wireguard-vpn/</link>
-      <pubDate>Fri, 15 Nov 2024 00:08:00 +0100</pubDate>
-      <guid>https://bowlofbytes.com/posts/setup-wireguard-vpn/</guid>
-      <description>&lt;p&gt;In my quest of building a homelab I wanted to set up a VPN to access my internal network from
-anywhere. Read on to see how     I&amp;rsquo;ve set this up with Wireguard.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

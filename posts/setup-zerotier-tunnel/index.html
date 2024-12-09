@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Using ZeroTier as VPN-tunnel | Bowl Of Bytes</title>
+<meta name="keywords" content="VPN, Linux, Homelab, Synology, NAS">
+<meta name="description" content="Sometimes when working with a homelab and VPN&rsquo;s you just want to skip all the config and just create a tunnel
+to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!">
+<meta name="author" content="">
+<link rel="canonical" href="https://bowlofbytes.com/posts/setup-zerotier-tunnel/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://bowlofbytes.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bowlofbytes.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bowlofbytes.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://bowlofbytes.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://bowlofbytes.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://bowlofbytes.com/posts/setup-zerotier-tunnel/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+    
+        <link rel="stylesheet" href="/css/custom.css">
+    
+<meta property="og:url" content="https://bowlofbytes.com/posts/setup-zerotier-tunnel/">
+  <meta property="og:site_name" content="Bowl Of Bytes">
+  <meta property="og:title" content="Using ZeroTier as VPN-tunnel">
+  <meta property="og:description" content="Sometimes when working with a homelab and VPN’s you just want to skip all the config and just create a tunnel to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-09T00:08:00+01:00">
+    <meta property="article:modified_time" content="2024-12-09T00:08:00+01:00">
+    <meta property="article:tag" content="VPN">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="Synology">
+    <meta property="article:tag" content="NAS">
+    <meta property="og:image" content="https://bowlofbytes.com/images/setup-zerotier-tunnel.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bowlofbytes.com/images/setup-zerotier-tunnel.jpg">
+<meta name="twitter:title" content="Using ZeroTier as VPN-tunnel">
+<meta name="twitter:description" content="Sometimes when working with a homelab and VPN&rsquo;s you just want to skip all the config and just create a tunnel
+to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://bowlofbytes.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Using ZeroTier as VPN-tunnel",
+      "item": "https://bowlofbytes.com/posts/setup-zerotier-tunnel/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Using ZeroTier as VPN-tunnel",
+  "name": "Using ZeroTier as VPN-tunnel",
+  "description": "Sometimes when working with a homelab and VPN\u0026rsquo;s you just want to skip all the config and just create a tunnel to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!\n",
+  "keywords": [
+    "VPN", "Linux", "Homelab", "Synology", "NAS"
+  ],
+  "articleBody": "Sometimes when working with a homelab and VPN’s you just want to skip all the config and just create a tunnel to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!\nWhat is ZeroTier? While WireGuard is a great VPN solution, it requires a bit of setup and configuration.\nZeroTier is a peer-to-peer software-defined networking (SDN) solution that creates secure virtual networks over the internet. It acts like a LAN regardless of physical location. It’s very easy to set up and even runs on Synology NAS devices.\nSign up for an account at ZeroTier.com and create a network. You will get a network ID that you can use to connect to.\nI won’t go into details on how the management screens work for ZeroTier, but it should be straightforward.\nInstallation on a jump box A jump box is a server that is used to access and ‘jump to’ devices, e.g. a different server not directly accessible from the outside. I’m using my Raspberry Pi as a jump box.\n→ Login to the jump box and install ZeroTier.\n1 curl -s https://install.zerotier.com | sudo bash → Check the status and join your network:\n1 2 3 sudo zerotier-cli status sudo zerotier-cli join YOUR_NETWORK_ID sudo zerotier-cli listnetworks Now it should say something like ’no access’, this is because you didn’t authorize this ‘member’ yet. We’ll get to that later.\nInstallation on a Synology NAS I’ve got this directly from their website: ZeroTier on Synology. Follow this guide to the letter. Spoiler: You will need to enable SSH on your NAS (check the port!) and install Docker (Package center).\nAuthorize members (devices) to the network You’ve now enabled ZeroTier on your devices, but they both need to be authorized. Go to the ZeroTier configuration page. The top collapsible should say “Members”. There is a refreshable list of members that are connected to the network. Select the ones you want to authorize (checkbox) and click the button “Authorize”.\nRepeat the status checks on your jump box to see if the box is authorized. It should state OK PRIVATE.\nNow if you want to verify if it works, install ZeroTier on your phone or laptop and join the network (don’t forget to authorize!). Now check if you can reach one of the other connected devices.\nIf you want to specify IP addresses in your network, play with the settings in the ‘Advanced’ section on the ZeroTier configuration page.\n",
+  "wordCount" : "406",
+  "inLanguage": "en",
+  "image":"https://bowlofbytes.com/images/setup-zerotier-tunnel.jpg","datePublished": "2024-12-09T00:08:00+01:00",
+  "dateModified": "2024-12-09T00:08:00+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bowlofbytes.com/posts/setup-zerotier-tunnel/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bowl Of Bytes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bowlofbytes.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://bowlofbytes.com/" accesskey="h" title="Bowl Of Bytes (Alt + H)">Bowl Of Bytes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://bowlofbytes.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bowlofbytes.com/overview/" title="Overview">
+                    <span>Overview</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bowlofbytes.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bowlofbytes.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Using ZeroTier as VPN-tunnel
+    </h1>
+    <div class="post-meta"><span title='2024-12-09 00:08:00 +0100 +0100'>December 9, 2024</span>&nbsp;·&nbsp;2 min
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="https://bowlofbytes.com/images/setup-zerotier-tunnel.jpg" alt="image-setup-zerotier-tunnel">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#what-is-zerotier" aria-label="What is ZeroTier?">What is ZeroTier?</a></li>
+                <li>
+                    <a href="#installation-on-a-jump-box" aria-label="Installation on a jump box">Installation on a jump box</a></li>
+                <li>
+                    <a href="#installation-on-a-synology-nas" aria-label="Installation on a Synology NAS">Installation on a Synology NAS</a></li>
+                <li>
+                    <a href="#authorize-members-devices-to-the-network" aria-label="Authorize members (devices) to the network">Authorize members (devices) to the network</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Sometimes when working with a homelab and VPN&rsquo;s you just want to skip all the config and just create a tunnel
+to your home network and/or (Synology) NAS. Read how ZeroTier gets this done!</p>
+<h3 id="what-is-zerotier">What is ZeroTier?<a hidden class="anchor" aria-hidden="true" href="#what-is-zerotier">#</a></h3>
+<p>While <a href="https://bowlofbytes.com/posts/setup-wireguard-vpn/" target="_blank" rel="noopener noreferrer nofollow">WireGuard</a> is a great VPN solution, it requires a bit of setup and configuration.</p>
+<p>ZeroTier is a peer-to-peer software-defined networking (SDN) solution that creates secure virtual networks over the internet.
+It acts like a LAN regardless of physical location. It&rsquo;s very easy to set up and even runs on Synology NAS devices.</p>
+<p>Sign up for an account at <a href="https://www.zerotier.com/" target="_blank" rel="noopener noreferrer nofollow">ZeroTier.com</a> and create a network. You will get a network ID that you can use to connect to.</p>
+<p>I won&rsquo;t go into details on how the management screens work for ZeroTier, but it should be straightforward.</p>
+<h3 id="installation-on-a-jump-box">Installation on a jump box<a hidden class="anchor" aria-hidden="true" href="#installation-on-a-jump-box">#</a></h3>
+<p>A jump box is a server that is used to access and &lsquo;jump to&rsquo; devices, e.g. a different server not directly
+accessible from the outside. I&rsquo;m using my Raspberry Pi as a jump box.</p>
+<p><span style="color: #E83D23;">→</span> Login to the jump box and install ZeroTier.</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -s https://install.zerotier.com | sudo bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><span style="color: #E83D23;">→</span> Check the status and join your network:</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo zerotier-cli status
+</span></span><span style="display:flex;"><span>sudo zerotier-cli join YOUR_NETWORK_ID
+</span></span><span style="display:flex;"><span>sudo zerotier-cli listnetworks
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now it should say something like &rsquo;no access&rsquo;, this is because you didn&rsquo;t authorize this &lsquo;member&rsquo; yet.
+We&rsquo;ll get to that later.</p>
+<h3 id="installation-on-a-synology-nas">Installation on a Synology NAS<a hidden class="anchor" aria-hidden="true" href="#installation-on-a-synology-nas">#</a></h3>
+<p>I&rsquo;ve got this directly from their website: <a href="https://docs.zerotier.com/synology/" target="_blank" rel="noopener noreferrer nofollow">ZeroTier on Synology</a>.
+Follow this guide to the letter. Spoiler: You will need to enable SSH on your NAS (check the port!) and install Docker (Package center).</p>
+<h3 id="authorize-members-devices-to-the-network">Authorize members (devices) to the network<a hidden class="anchor" aria-hidden="true" href="#authorize-members-devices-to-the-network">#</a></h3>
+<p>You&rsquo;ve now enabled ZeroTier on your devices, but they both need to be authorized. Go to the ZeroTier configuration page.
+The top collapsible should say &ldquo;Members&rdquo;. There is a refreshable list of members that are connected to the network.
+Select the ones you want to authorize (checkbox) and click the button &ldquo;Authorize&rdquo;.</p>
+<p>Repeat the status checks on your jump box to see if the box is authorized. It should state <code>OK PRIVATE</code>.</p>
+<p>Now if you want to verify if it works, install ZeroTier on your phone or laptop and join the network (don&rsquo;t forget to authorize!).
+Now check if you can reach one of the other connected devices.</p>
+<p>If you want to specify IP addresses in your network, play with the settings in the &lsquo;Advanced&rsquo; section on the ZeroTier configuration page.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://bowlofbytes.com/tags/vpn/">VPN</a></li>
+      <li><a href="https://bowlofbytes.com/tags/linux/">Linux</a></li>
+      <li><a href="https://bowlofbytes.com/tags/homelab/">Homelab</a></li>
+      <li><a href="https://bowlofbytes.com/tags/synology/">Synology</a></li>
+      <li><a href="https://bowlofbytes.com/tags/nas/">NAS</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://bowlofbytes.com/">Bowl Of Bytes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
