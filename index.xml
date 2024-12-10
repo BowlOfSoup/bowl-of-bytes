@@ -6,13 +6,13 @@
     <description>Recent content on Bowl Of Bytes</description>
     <generator>Hugo -- 0.139.4</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Dec 2024 00:08:01 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2024 00:08:01 +0100</lastBuildDate>
     <atom:link href="https://bowlofbytes.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sync a non-static IP with a domain provider via APIs</title>
-      <link>https://bowlofbytes.com/posts/sync-non-static-up-transip/</link>
-      <pubDate>Mon, 09 Dec 2024 00:08:01 +0100</pubDate>
-      <guid>https://bowlofbytes.com/posts/sync-non-static-up-transip/</guid>
+      <link>https://bowlofbytes.com/posts/sync-non-static-ip-transip/</link>
+      <pubDate>Tue, 10 Dec 2024 00:08:01 +0100</pubDate>
+      <guid>https://bowlofbytes.com/posts/sync-non-static-ip-transip/</guid>
       <description>&lt;p&gt;The next quest in my homelab adventure was to make sure my domain name always points to my home network,
 even if my ISP changes my public IP address. See how I solved this with TransIP.&lt;/p&gt;</description>
     </item>
