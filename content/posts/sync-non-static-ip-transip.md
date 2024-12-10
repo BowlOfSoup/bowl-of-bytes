@@ -85,7 +85,7 @@ WantedBy=multi-user.target
 ```
 
 <span style="color: #7843E6;">→</span> (4) move the file to `/etc/systemd/system/dynamic-ip-syncer.service` and enable the service:
-```c
+```text
 sudo mv dynamic-ip-syncer.service /etc/systemd/system/
 sudo chown root:root /etc/systemd.system/dynamic-ip-syncer.service && sudo chmod 644 /etc/systemd/system/dynamic-ip-syncer.service
 sudo systemctl enable dynamic-ip-syncer
