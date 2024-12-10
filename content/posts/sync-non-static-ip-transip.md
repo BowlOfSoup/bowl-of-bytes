@@ -91,9 +91,9 @@ sudo chown root:root /etc/systemd.system/dynamic-ip-syncer.service && sudo chmod
 sudo systemctl enable dynamic-ip-syncer
 ```
 
-<span style="color: #7843E6;">→</span> (5) Make sure to create a `config.yaml` file in `/etc/dynamic-ip-syncer/` with the correct values.
+<span style="color: #7843E6;">→</span> (5) Make sure to create a `config.yaml` file in `/etc/dynamic-ip-syncer/` with the correct values, permissions should be `root:root`.
 
-<span style="color: #7843E6;">→</span> (6) Make sure to create a `private.key` file in `/etc/dynamic-ip-syncer/` with the private key you got from TransIP.
+<span style="color: #7843E6;">→</span> (6) Make sure to create a `private.key` file in `/etc/dynamic-ip-syncer/` with the private key you got from TransIP, permissions should be `root:root`.
 
 <span style="color: #7843E6;">→</span> (7) Start the service; the service will run in the background, and starts on reboot.
 ```bash
