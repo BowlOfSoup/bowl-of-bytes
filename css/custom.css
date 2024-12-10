@@ -1,3 +1,7 @@
+.dark {
+    --theme: #212223
+}
+
 .highlight {
     margin-bottom: 25px !important;
 }
