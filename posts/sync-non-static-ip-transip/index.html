@@ -305,9 +305,9 @@ IPv4 and IPv6 address in plain text. The following URLs can be used:</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>sudo mv dynamic<span style="color:#ff6ac1">-</span>ip<span style="color:#ff6ac1">-</span>syncer.service <span style="color:#ff6ac1">/</span>etc<span style="color:#ff6ac1">/</span>systemd<span style="color:#ff6ac1">/</span>system<span style="color:#ff6ac1">/</span>
-</span></span><span style="display:flex;"><span>sudo chown <span style="color:#ff5c57">root</span>:root <span style="color:#ff6ac1">/</span>etc<span style="color:#ff6ac1">/</span>systemd.system<span style="color:#ff6ac1">/</span>dynamic<span style="color:#ff6ac1">-</span>ip<span style="color:#ff6ac1">-</span>syncer.service <span style="color:#ff6ac1">&amp;&amp;</span> sudo chmod <span style="color:#ff9f43">644</span> <span style="color:#ff6ac1">/</span>etc<span style="color:#ff6ac1">/</span>systemd<span style="color:#ff6ac1">/</span>system<span style="color:#ff6ac1">/</span>dynamic<span style="color:#ff6ac1">-</span>ip<span style="color:#ff6ac1">-</span>syncer.service
-</span></span><span style="display:flex;"><span>sudo systemctl enable dynamic<span style="color:#ff6ac1">-</span>ip<span style="color:#ff6ac1">-</span>syncer
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo mv dynamic-ip-syncer.service /etc/systemd/system/
+</span></span><span style="display:flex;"><span>sudo chown root:root /etc/systemd.system/dynamic-ip-syncer.service &amp;&amp; sudo chmod 644 /etc/systemd/system/dynamic-ip-syncer.service
+</span></span><span style="display:flex;"><span>sudo systemctl enable dynamic-ip-syncer
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><span style="color: #7843E6;">→</span> (5) Make sure to create a <code>config.yaml</code> file in <code>/etc/dynamic-ip-syncer/</code> with the correct values.</p>
